@@ -5,6 +5,5 @@ import { PollsModule } from './polls/polls.module';
     imports: [ConfigModule.forRoot(), PollsModule],
     controllers: [],
     providers: [],
-    exports: [],
 })
 export class AppModule {}
