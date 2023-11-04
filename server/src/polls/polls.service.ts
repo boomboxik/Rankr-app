@@ -7,7 +7,8 @@ import { JwtService } from '@nestjs/jwt';
 @Injectable()
 export class PollsService {
   private readonly logger = new Logger(PollsService.name);
-  constructor(private readonly pollsRepository: PollsRepository,
+  constructor(
+    private readonly pollsRepository: PollsRepository,
     private readonly jwtService: JwtService,
     ) {}
   async createPoll(fields: CreatePollFields) {
