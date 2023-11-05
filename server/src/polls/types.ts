@@ -1,4 +1,4 @@
-import { Request } from '@nestjs/common';
+import { Request } from 'express';
 import { Socket } from 'socket.io';
 
 // service types
