@@ -45,7 +45,7 @@ export type CreatePollFields = {
   };
 
   // guard types
-type AuthPayload = {
+export type AuthPayload = {
   userID: string;
   pollID: string;
   name: string;
