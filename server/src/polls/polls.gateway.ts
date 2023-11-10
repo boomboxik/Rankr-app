@@ -1,9 +1,9 @@
-import { 
+import {
   Logger,
   UseFilters,
-  UsePipes,
-  ValidationPipe, 
   UseGuards,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import {
   OnGatewayInit,
@@ -16,11 +16,11 @@ import {
   ConnectedSocket,
 } from '@nestjs/websockets';
 import { Namespace } from 'socket.io';
+import { WsCatchAllFilter } from 'src/exceptions/ws-catch-all-filter';
+import { NominationDto } from './dtos';
+import { GatewayAdminGuard } from './gateway-admin.guard';
 import { PollsService } from './polls.service';
 import { SocketWithAuth } from './types';
-import { WsCatchAllFilter } from 'src/exceptions/ws-catch-all-filter';
-import { GatewayAdminGuard } from './gateway-admin.guard';
-import { NominationDto } from './dtos';
 
 @UsePipes(new ValidationPipe())
 @UseFilters(new WsCatchAllFilter())
@@ -44,8 +44,8 @@ export class PollsGateway
     const sockets = this.io.sockets;
 
     this.logger.debug(
-        `Socket connected with userID: ${client.userID}, pollID: ${client.pollID}, and name: "${client.name}"`,
-      );
+      `Socket connected with userID: ${client.userID}, pollID: ${client.pollID}, and name: "${client.name}"`,
+    );
 
     this.logger.log(`WS Client with id: ${client.id} connected!`);
     this.logger.debug(`Number of connected sockets: ${sockets.size}`);
