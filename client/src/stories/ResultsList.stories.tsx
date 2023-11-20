@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import ResultsList from '../components/ResultsList';
 import { Results } from 'shared/poll-types';
@@ -7,9 +7,9 @@ import { Results } from 'shared/poll-types';
 export default {
   title: 'ResultsList',
   component: ResultsList,
-} as ComponentMeta<typeof ResultsList>;
+} as Meta<typeof ResultsList>;
 
-const Template: ComponentStory<typeof ResultsList> = (args) => (
+const Template: StoryFn<typeof ResultsList> = (args) => (
   <div className="max-w-sm m-auto h-screen">
     <ResultsList {...args} />
   </div>
